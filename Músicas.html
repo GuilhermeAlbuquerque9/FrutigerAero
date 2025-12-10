@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrutigerAero.net - Músicas</title>
+    <title>Músicas - FrutigerAero.net</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,43 +22,48 @@
 
 <div class="page active">
     <h1>Músicas</h1>
-    <p>Aqui você pode ouvir músicas hospedadas no próprio site!</p>
+    <p>Relaxe ouvindo músicas no estilo Frutiger Aero! 🎧✨💧</p>
 
-    <h2>Enviar música</h2>
-    <form action="upload_musica.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="musica" accept=".mp3" required>
-        <button type="submit" class="btn">Enviar Música</button>
-    </form>
+    <!-- MÚSICA 1 -->
+    <div class="music-player">
+        <h2>Música 1 — Aquatic Ambience</h2>
+        <p class="autor">Scizzie</p>
 
-    <h2>Playlist</h2>
-
-    <div class="galeria">
-        <?php
-            $pasta = "uploads_musicas/";
-            if (!is_dir($pasta)) {
-                mkdir($pasta);
-            }
-
-            $arquivos = glob($pasta . "*.mp3");
-
-            if (count($arquivos) === 0) {
-                echo "<p>Nenhuma música enviada ainda.</p>";
-            } else {
-                foreach ($arquivos as $musica) {
-                    $nome = basename($musica);
-                    echo "
-                        <div class='musica-card'>
-                            <p><strong>$nome</strong></p>
-                            <audio controls>
-                                <source src='$musica' type='audio/mpeg'>
-                                Seu navegador não suporta áudio HTML5.
-                            </audio>
-                        </div>
-                    ";
-                }
-            }
-        ?>
+        <a class="yt-button" href="https://www.youtube.com/watch?v=DP3rDP02lE0" target="_blank">
+            🎧 Ouvir no YouTube
+        </a>
     </div>
+
+    <!-- MÚSICA 2 -->
+    <div class="music-player">
+        <h2>Música 2 — Mii Editor</h2>
+        <p class="autor">Nintendo® (Wii U Mii Maker)</p>
+
+        <a class="yt-button" href="https://www.youtube.com/watch?v=oTu4WcpB9Iw&list=RDoTu4WcpB9Iw&start_radio=1" target="_blank">
+            🎧 Ouvir no YouTube
+        </a>
+    </div>
+
+    <!-- MÚSICA 3 -->
+    <div class="music-player">
+        <h2>Música 3 — Lotus Waters</h2>
+        <p class="autor">Urotsuki</p>
+
+        <a class="yt-button" href="https://www.youtube.com/watch?v=jfKfPfyJRdk" target="_blank">
+            🎧 Ouvir no YouTube
+        </a>
+    </div>
+
+    <!-- MÚSICA 4 (Rickroll!) -->
+    <div class="music-player">
+        <h2>Música 4 — Aero Place</h2>
+        <p class="autor">FrutigerAeroFan</p>
+
+        <a class="yt-button" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            🎧 Ouvir no YouTube
+        </a>
+    </div>
+
 
 </div>
 
