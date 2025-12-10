@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FrutigerAero.net - Imagens</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="aurora"></div>
+
+<header>
+    <div class="logo">FrutigerAero.net</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Sobre.html">Sobre</a>
+        <a href="Frutigers.html">Frutigers</a>
+        <a href="Imagens.html">Imagens</a>
+        <a href="Músicas.html">Músicas</a>
+    </nav>
+</header>
+
+<div class="page active">
+    <h1>Imagens</h1>
+
+    <div class="upload-box">
+        <h2>Enviar nova imagem</h2>
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="imagem" accept="image/*" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <h2 style="margin-top: 40px;">Galeria</h2>
+    <div class="gallery">
+        <!-- Imagens enviadas aparecerão aqui -->
+        <?php
+            $arquivos = glob("uploads/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+            foreach ($arquivos as $img) {
+                echo '<img src="' . $img . '" alt="Imagem">';
+            }
+        ?>
+    </div>
+</div>
+
+</body>
+</html>
