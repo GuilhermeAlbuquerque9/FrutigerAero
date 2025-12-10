@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrutigerAero.net - Músicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="aurora"></div>
+
+<header>
+    <div class="logo">FrutigerAero.net</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Sobre.html">Sobre</a>
+        <a href="Frutigers.html">Frutigers</a>
+        <a href="Imagens.html">Imagens</a>
+        <a href="Músicas.html">Músicas</a>
+    </nav>
+</header>
+
+<div class="page active">
+    <h1>Músicas</h1>
+    <p>Aqui você pode ouvir músicas hospedadas no próprio site!</p>
+
+    <h2>Enviar música</h2>
+    <form action="upload_musica.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="musica" accept=".mp3" required>
+        <button type="submit" class="btn">Enviar Música</button>
+    </form>
+
+    <h2>Playlist</h2>
+
+    <div class="galeria">
+        <?php
+            $pasta = "uploads_musicas/";
+            if (!is_dir($pasta)) {
+                mkdir($pasta);
+            }
+
+            $arquivos = glob($pasta . "*.mp3");
+
+            if (count($arquivos) === 0) {
+                echo "<p>Nenhuma música enviada ainda.</p>";
+            } else {
+                foreach ($arquivos as $musica) {
+                    $nome = basename($musica);
+                    echo "
+                        <div class='musica-card'>
+                            <p><strong>$nome</strong></p>
+                            <audio controls>
+                                <source src='$musica' type='audio/mpeg'>
+                                Seu navegador não suporta áudio HTML5.
+                            </audio>
+                        </div>
+                    ";
+                }
+            }
+        ?>
+    </div>
+
+</div>
+
+</body>
+</html>
