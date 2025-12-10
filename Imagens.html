@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FrutigerAero.net - Imagens</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Imagens - FrutigerAero.net</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,25 +21,15 @@
 </header>
 
 <div class="page active">
-    <h1>Imagens</h1>
+    <h1>Galeria de Imagens</h1>
+    <p>Aqui estão algumas imagens no estilo da família Frutiger!:</p>
 
-    <div class="upload-box">
-        <h2>Enviar nova imagem</h2>
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
-    <input type="file" name="imagem" accept="image/*" required>
-    <button type="submit">Enviar Imagem</button>
-</form>
-    </div>
-
-    <h2 style="margin-top: 40px;">Galeria</h2>
     <div class="gallery">
-        <!-- Imagens enviadas aparecerão aqui -->
-        <?php
-            $arquivos = glob("uploads/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-            foreach ($arquivos as $img) {
-                echo '<img src="' . $img . '" alt="Imagem">';
-            }
-        ?>
+        <img src="Imagens/Img1.png" alt="Imagem 1">
+        <img src="Imagens/Img2.png" alt="Imagem 2">
+        <img src="Imagens/Img3.png" alt="Imagem 3">
+        <img src="Imagens/Img4.png" alt="Imagem 4">
+        <img src="Imagens/Img5.png" alt="Imagem 5">
     </div>
 </div>
 
